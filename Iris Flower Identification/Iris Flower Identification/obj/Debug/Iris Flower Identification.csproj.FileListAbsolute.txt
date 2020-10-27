@@ -1,0 +1,9 @@
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\bin\Debug\Iris Flower Identification.exe.config
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\bin\Debug\Iris Flower Identification.exe
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\bin\Debug\Iris Flower Identification.pdb
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\obj\Debug\Iris Flower Identification.csprojAssemblyReference.cache
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\obj\Debug\Iris_Flower_Identification.Properties.Resources.resources
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\obj\Debug\Iris Flower Identification.csproj.GenerateResource.cache
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\obj\Debug\Iris Flower Identification.csproj.CoreCompileInputs.cache
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\obj\Debug\Iris Flower Identification.exe
+C:\Users\tahva\source\repos\Iris Flower Identification\Iris Flower Identification\obj\Debug\Iris Flower Identification.pdb
