@@ -13,20 +13,11 @@ namespace Iris_Flower_Identification
         //hyperparameters
         public static int numSamples = 150;
         public static int numInputs = 4;
-        public static int[] hiddenLayers = { 9 }; //best values are 7, 8, 9
+        public static int[] hiddenLayers = { 8 }; //best values are 7, 8, 9
         public static int numOutputs = 3;
-<<<<<<< HEAD
-<<<<<<< HEAD
         public static int numEpochs = 5000;
         public static double learningRate = .1;
         public static double momentumScalar = .05;
-=======
-=======
->>>>>>> parent of bc524f4... updated hyperparameters
-        public static int numEpochs = 2500;
-        public static double learningRate = .22;
-        public static double momentumScalar = .12;
->>>>>>> parent of bc524f4... updated hyperparameters
 
         //references
         double[][] inputs;
