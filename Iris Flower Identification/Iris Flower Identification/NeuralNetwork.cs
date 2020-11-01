@@ -16,8 +16,8 @@ namespace Iris_Flower_Identification
         public static int[] hiddenLayers = { 8 }; //best values are 7, 8, 9
         public static int numOutputs = 3;
         public static int numEpochs = 5000;
-        public static double learningRate = .1;
-        public static double momentumScalar = .05;
+        public static double learningRate = .22;
+        public static double momentumScalar = .12;
 
         //references
         double[][] inputs;
