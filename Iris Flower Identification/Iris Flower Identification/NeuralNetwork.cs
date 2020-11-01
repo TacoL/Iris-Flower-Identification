@@ -13,7 +13,7 @@ namespace Iris_Flower_Identification
         //hyperparameters
         public static int numSamples = 150;
         public static int numInputs = 4;
-        public static int[] hiddenLayers = { 8 }; //best values are 7, 8, 9
+        public static int[] hiddenLayers = { 9 }; //best values are 7, 8, 9
         public static int numOutputs = 3;
         public static int numEpochs = 5000;
         public static double learningRate = .22;
