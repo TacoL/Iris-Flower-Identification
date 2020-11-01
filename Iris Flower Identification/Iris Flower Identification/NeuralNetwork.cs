@@ -205,6 +205,8 @@ namespace Iris_Flower_Identification
                 totalBiasGradients.Add(new Matrix(0, 0));
             }
 
+            double MSE = 0;
+
             //get all the weight gradients
             for (int sampleIdx = 0; sampleIdx < numSamples; sampleIdx++)
             {
@@ -212,6 +214,8 @@ namespace Iris_Flower_Identification
                 Matrix outputs = forwardPass(sampleInput);
                 Matrix targetsMatrix = new Matrix(targets[sampleIdx]);
                 Matrix errorMatrix = Matrix.Subtract(outputs, targetsMatrix);
+                Matrix dummyError = Matrix.Subtract(outputs, targetsMatrix);
+                MSE += Matrix.getMagnitude(Matrix.Square(dummyError));
 
                 List<Matrix> activationGradientsMatrix = new List<Matrix>();
                 for (int i = 0; i < layers.Count; i++)
@@ -303,6 +307,8 @@ namespace Iris_Flower_Identification
                     }
                 }
             }
+
+            Console.WriteLine("MSE: " + (MSE /= numSamples));
 
             for (int i = 1; i < totalWeightGradients.Count; i++)
             {

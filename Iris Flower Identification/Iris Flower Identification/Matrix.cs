@@ -223,5 +223,16 @@ namespace Iris_Flower_Identification
 
             return newMatrix;
         }
+
+        public static double getMagnitude(Matrix vector)
+        {
+            double squaredSum = 0;
+            for (int row = 0; row < vector.numRows; row++)
+            {
+                squaredSum += Math.Pow(vector.matrix[row, 0], 2);
+            }
+
+            return Math.Sqrt(squaredSum);
+        }
     }
 }
