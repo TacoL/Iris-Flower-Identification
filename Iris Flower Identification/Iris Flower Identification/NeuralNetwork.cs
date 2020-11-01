@@ -42,12 +42,11 @@ namespace Iris_Flower_Identification
                 epochNum++;
             }
 
-            StreamReader sr = new StreamReader(File.OpenRead(@"IRIS.csv"));
-            String line = sr.ReadLine(); //skips first line
-            while ((line = sr.ReadLine()) != null)
+            int numMatched = 0;
+
+            for (int i = 0; i < numSamples; i++)
             {
-                String[] dividedString = line.Split(',');
-                Matrix results = forwardPass(new double[] { Double.Parse(dividedString[0]), Double.Parse(dividedString[1]), Double.Parse(dividedString[2]), Double.Parse(dividedString[3]) });
+                Matrix results = forwardPass(inputs[i]);
 
                 int rowWithMaxValue = 0;
                 for (int row = 0; row < results.numRows; row++)
@@ -58,16 +57,21 @@ namespace Iris_Flower_Identification
                     }
                 }
 
+                double[] target = targets[i];
+
                 String[] names = { "Iris-setosa", "Iris-versicolor", "Iris-virginica" };
-                if (names[rowWithMaxValue] == dividedString[4])
+                if (target[rowWithMaxValue] == 1)
                 {
                     Console.WriteLine("Match: " + names[rowWithMaxValue]);
+                    numMatched++;
                 }
                 else
                 {
-                    Console.WriteLine("Error: Predicted = " + names[rowWithMaxValue] + ", Actual = " + dividedString[4]);
+                    Console.WriteLine("Error: Predicted = " + names[rowWithMaxValue] + ", Actual = ");
                 }
             }
+
+            Console.WriteLine(numMatched + "/" + numSamples);
         }
 
         public void GenerateData(out double[][] inputs, out double[][] targets)
@@ -115,6 +119,31 @@ namespace Iris_Flower_Identification
                 }
                 sampleIdx++;
             }
+
+            //double[] maxValues = new double[] { Double.MinValue, Double.MinValue, Double.MinValue, Double.MinValue };
+            //double[] minValues = new double[] { Double.MaxValue, Double.MaxValue, Double.MaxValue, Double.MaxValue };
+            //foreach (double[] sample in inputs)
+            //{
+            //    for (int i = 0; i < sample.Length; i++)
+            //    {
+            //        if (sample[i] > maxValues[i])
+            //        {
+            //            maxValues[i] = sample[i];
+            //        }
+            //        if (sample[i] < minValues[i])
+            //        {
+            //            minValues[i] = sample[i];
+            //        }
+            //    }
+            //}
+
+            //foreach (double[] sample in inputs)
+            //{
+            //    for (int i = 0; i < sample.Length; i++)
+            //    {
+            //        sample[i] = (minValues[i] - sample[i]) / (maxValues[i] - minValues[i]);
+            //    }
+            //}
         }
 
         public void Generate()
@@ -212,7 +241,7 @@ namespace Iris_Flower_Identification
                         activationGradientsMatrix[layerIdx] = activationGradient;
                     }
 
-                    for (int row = 0; row < weightGradient.numRows; row++)
+                    for (int row = 0; row < weightGradient.numRows; row++) //for weight matrix with k rows and j columns, j = num neurons in previous, k = num neurons in this
                     {
                         for (int column = 0; column < weightGradient.numColumns; column++)
                         {
